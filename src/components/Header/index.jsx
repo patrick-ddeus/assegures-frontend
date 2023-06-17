@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { FiMenu, FiX } from 'react-icons/fi';
+import { IoLogoInstagram } from 'react-icons/io5';
+import { IoLogoFacebook, IoLogoTwitter } from 'react-icons/io';
 
-import { Container, ContainerControl, NavList, NavItem, NavLink, HamburgerIcon } from './styles';
+import { Container, ContainerControl, NavList, NavItem, NavLink, HamburgerIcon, IconsList } from './styles';
 
 const Header = () => {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -59,6 +61,11 @@ const Header = () => {
                         </NavItem>
                     </NavList>
                 </nav>
+                <IconsList>
+                    <IoLogoFacebook/>
+                    <IoLogoInstagram />
+                    <IoLogoTwitter />
+                </IconsList>
             </ContainerControl>
         </Container>
     );

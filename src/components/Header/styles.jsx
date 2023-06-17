@@ -20,7 +20,7 @@ export const Container = styled.div`
     background-color:${({ transparent }) => !transparent ? `transparent` : `white`};
     position:fixed;
     width:100%;
-    z-index:2;
+    z-index:1000;
     ${({ transparent }) => transparent && `
         box-shadow: 0 1px 30px rgba(0, 0, 0, 0.1);
     `}
@@ -29,6 +29,7 @@ export const Container = styled.div`
         font-size:32px;
 
         span{
+            transition:all .4s ease;
             color:${({ transparent }) => !transparent ? `white` : `#1f9b4c`};
         }
     }
@@ -86,3 +87,20 @@ export const NavLink = styled(Link)`
         transform: scale(1.1)
     }
 `;
+
+export const IconsList = styled.div`
+  display:flex;
+  gap:15px;
+  margin-left:40px;
+
+  svg{
+    font-size:17px;
+    cursor:pointer;
+    transition:all .2s ease;
+
+    &:hover{
+      color:#E1306C;
+    }
+  }
+`;
+

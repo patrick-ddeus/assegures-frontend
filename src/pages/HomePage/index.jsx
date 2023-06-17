@@ -1,6 +1,9 @@
 import React from 'react';
 import Header from '../../components/Header';
-import { Container, Banner, BannerContent, BannerButtom, BannerText, BannerVideo } from './styles';
+import WhatsAppSnippet from '../../components/WhatsAppSnippet';
+import CarouselComponent from './Carousel';
+import Filters from './Filters';
+import { Container, Banner, BannerContent, BannerButtom, BannerText, BannerVideo, ImovelSection } from './styles';
 
 const HomePage = () => {
     return (
@@ -25,13 +28,12 @@ const HomePage = () => {
                     </BannerVideo>
                 </BannerContent>
             </Banner>
-            <section className="teste">
-                <h2>Encontre seu imóvel ideal</h2>
-                <input type="text" />
-                <input type="text" />
-                <input type="text" />
-                <input type="text" />
-            </section>
+            <ImovelSection>
+                <h2 className="section-title">Encontre o Imóvel dos seus sonhos</h2>
+                <Filters />
+                <CarouselComponent />
+            </ImovelSection>
+            <WhatsAppSnippet />
         </Container>
     );
 };

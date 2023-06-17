@@ -1,9 +1,10 @@
 import axios, { AxiosError } from "axios";
 
 const axiosInstance = axios.create({
-    baseURL: process.env.REACT_API_BASE_URL,
+    baseURL: "http://localhost:5000/",
     headers: { "Content-Type": "application/json" },
 });
+
 
 const queryStringBuilder = (query) =>
     Object.keys(query).length

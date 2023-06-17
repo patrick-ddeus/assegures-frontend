@@ -13,12 +13,19 @@ const kenburnsTop = keyframes`
   }
 `;
 
+const fadeInLeft = keyframes`
+    0% {
+        transform: translateX(100px);
+        opacity:0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity:1;
+    }
+`;
+
 export const Container = styled.div`
   overflow:hidden;
-
-  .teste{
-    height:400px;
-  }
 `;
 
 
@@ -28,7 +35,7 @@ export const Banner = styled.div`
   background:url(${banner});
   background-size:cover;
   background-position:0 80%;
-  animation: ${kenburnsTop} 3s ease-out both;
+  animation: ${kenburnsTop} 1.9s ease-out both;
   position:relative;
   display:flex;
   align-items:center;
@@ -68,10 +75,21 @@ export const BannerText = styled.div`
     margin-top:-70px;
     margin-bottom:40px;
     line-height:1.5;
+
+    span:nth-child(1){
+	    animation: ${fadeInLeft} 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    }
+
+    span:nth-child(2){
+	    animation: ${fadeInLeft} 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+        animation-delay:.5s;
+    }
   }
 `;
 
 export const BannerVideo = styled.div`
+    animation: ${fadeInLeft} 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    animation-delay:2s;
   iframe{
     width:525px;
     height:295px;
@@ -88,6 +106,8 @@ export const BannerButtom = styled(Link)`
   padding:15px 30px;
   transition: all .5s;
   font-weight:normal;
+  animation: ${fadeInLeft} 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  animation-delay:1.4s;
 
   &:hover{
     background: #ce3232;
@@ -96,3 +116,20 @@ export const BannerButtom = styled(Link)`
   }
 `;
 
+export const ImovelSection = styled.div`
+    position:relative;
+    top:20px;
+    z-index:444;
+    background-color:white;
+    font-family:"Poppins", sans-serif;
+    width:1200px;
+    margin:0 auto;
+
+    .section-title{
+      margin-top:70px;
+      margin-bottom:30px;
+      font-size:2.2em;
+      color:#002337;
+      font-weight:400;
+    }
+`;
