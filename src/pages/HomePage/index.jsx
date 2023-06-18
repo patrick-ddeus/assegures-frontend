@@ -1,9 +1,19 @@
 import React from 'react';
 import Header from '../../components/Header';
+import ImmobileCard from '../../components/ImmobileCard';
 import WhatsAppSnippet from '../../components/WhatsAppSnippet';
 import CarouselComponent from './Carousel';
 import Filters from './Filters';
-import { Container, Banner, BannerContent, BannerButtom, BannerText, BannerVideo, ImovelSection } from './styles';
+import {
+    Container,
+    Banner,
+    BannerContent,
+    BannerButtom,
+    BannerText,
+    BannerVideo,
+    ImovelSection,
+    ImovelToSendSection
+} from './styles';
 
 const HomePage = () => {
     return (
@@ -13,8 +23,14 @@ const HomePage = () => {
                 <BannerContent>
                     <BannerText>
                         <h2>
-                            <span>Descubra o paraíso rural<br /></span> <span> Venda de fazendas Rio!</span>
+                            <span>
+                                Encontre Sua Nova Casa<br />
+                            </span>
+                            <span>
+                                Hoje Conosco!
+                            </span>
                         </h2>
+                        <p>Encontrar a casa, o comércio ou o escritório que você vai adorar alugar ou comprar ficou mais fácil.</p>
                         <BannerButtom>Contate</BannerButtom>
                     </BannerText>
                     <BannerVideo>
@@ -33,6 +49,9 @@ const HomePage = () => {
                 <Filters />
                 <CarouselComponent />
             </ImovelSection>
+            <ImovelToSendSection>
+                <ImmobileCard />
+            </ImovelToSendSection>
             <WhatsAppSnippet />
         </Container>
     );

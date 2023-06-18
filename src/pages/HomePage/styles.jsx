@@ -69,12 +69,11 @@ export const BannerContent = styled.div`
 
 export const BannerText = styled.div`
   h2{
-    font-weight:300;
-    font-size:3em;
+    font-weight:600;
+    font-size:3.5em;
     letter-spacing:-1px;
-    margin-top:-70px;
-    margin-bottom:40px;
-    line-height:1.5;
+    margin-top:-40px;
+    margin-bottom:20px;
 
     span:nth-child(1){
 	    animation: ${fadeInLeft} 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
@@ -84,6 +83,12 @@ export const BannerText = styled.div`
 	    animation: ${fadeInLeft} 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
         animation-delay:.5s;
     }
+  }
+
+  p{
+    margin-bottom:50px;
+    font-size:1.5em;
+    font-weight:300;
   }
 `;
 
@@ -99,7 +104,7 @@ export const BannerVideo = styled.div`
 export const BannerButtom = styled(Link)`
   border: 2px solid #f9f9f9;
   color: #f9f9f9;
-  border-radius: 100px;
+  border-radius: 5px;
   cursor: pointer;
   font-family:inherit;
   font-size:13px;
@@ -117,10 +122,6 @@ export const BannerButtom = styled(Link)`
 `;
 
 export const ImovelSection = styled.div`
-    position:relative;
-    top:20px;
-    z-index:444;
-    background-color:white;
     font-family:"Poppins", sans-serif;
     width:1200px;
     margin:0 auto;
@@ -132,4 +133,9 @@ export const ImovelSection = styled.div`
       color:#002337;
       font-weight:400;
     }
+`;
+
+export const ImovelToSendSection = styled.div`
+    width:1200px;
+    margin:0 auto;
 `;

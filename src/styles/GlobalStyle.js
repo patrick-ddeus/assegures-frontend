@@ -19,6 +19,7 @@ export const GlobalStyle = createGlobalStyle`
 
   body{
     font-size:12px;
+    background-color:#F8F8F8;
   }
 
   a{

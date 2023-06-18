@@ -15,7 +15,7 @@ const Header = () => {
 
     useEffect(() => {
         const handleScroll = () => {
-            if (document.documentElement.scrollTop > 200) {
+            if (document.documentElement.scrollTop > 100) {
                 setIsTransparent(true);
             } else {
                 setIsTransparent(false);

@@ -48,6 +48,7 @@ export const ContainerControl = styled.div`
 export const NavList = styled.ul`
   display: flex;
   align-items: center;
+  margin-top:5px;
   transition:all 0.5s ease-in-out;
   gap:22px;
 
