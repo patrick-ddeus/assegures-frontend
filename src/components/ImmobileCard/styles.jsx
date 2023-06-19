@@ -1,11 +1,10 @@
 import styled, { keyframes } from 'styled-components';
 
 export const Container = styled.div`
-  width:315px;
+  width:295px;
   height:400px;
   border-top-right-radius:23px;
   border-top-left-radius:23px;
-  margin:0 20px;
   background-color:white;
   font-family:"Poppins", sans-serif;
   cursor:pointer;
@@ -22,6 +21,16 @@ export const ImageDiv = styled.div`
   border-top-left-radius:20px;
   position:relative;
   cursor:pointer;
+
+  &:hover{
+    .next-btn{
+        opacity:1;
+    }
+
+    .prev-btn{
+        opacity:1;
+    }
+  }
   
   .overlay{
     transition:opacity 2s ease;
@@ -40,6 +49,31 @@ export const ImageDiv = styled.div`
     transition: transform 2s ease;
     transform: ${({ zoom }) => zoom ? `scale(1.05)` : `scale(1)`}
     ${({ zoom }) => zoom ? `translateX(8px)` : `translateX(0)`}
+  }
+
+  .nav-btn{
+    position:absolute;
+    width:24px;
+    height:24px;
+    background-color:white;
+    font-size:14px;
+    z-index:9;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    transition:opacity .2s ease;
+    opacity:0;
+  }
+
+  .next-btn{
+    top:80px;
+    right:10px;
+  }
+
+  .prev-btn{
+    top:80px;
+    left:10px;
   }
 
 `;
@@ -120,4 +154,35 @@ export const Details = styled.div`
     align-items:center;
     gap:5px;
   }
+`;
+
+export const MoreDetailsButton = styled.button`
+  width:100%;
+  padding:10px 0;
+  background-color:#2ecc71;
+  border-radius:5px;
+  margin-top:10px;
+  color: #3a3a3a;
+  font-size:15px;
+  font-weight:500;
+  transition:all .2s ease;
+  
+  &:hover{
+    background-color:#3a3a3a;
+    color:white;
+  }
+`;
+
+export const Label = styled.div`
+  position:absolute;
+  top:-160px;
+  right:10px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+  background-color:#2ecc71;
+  color:#3a3a3a;
+  padding:10px 9px;
+  border-radius:20px;
+  font-weight:500;
 `;

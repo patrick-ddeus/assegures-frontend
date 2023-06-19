@@ -4,7 +4,7 @@ import { IoChevronBackSharp, IoChevronForwardSharp } from 'react-icons/io5';
 export const ExternalContainer = styled.div`
   position:relative;
 
-  .next-btn{
+  .carousel-next-btn{
     color: rgb(60, 72, 88);
     width: 60px;
     height: 60px;
@@ -21,7 +21,7 @@ export const ExternalContainer = styled.div`
     }
   }
 
-  .prev-btn{
+  .carousel-prev-btn{
     color: rgb(60, 72, 88);
     width: 60px;
     height: 60px;

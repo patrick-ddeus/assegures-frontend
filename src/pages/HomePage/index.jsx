@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import ImmobileCard from '../../components/ImmobileCard';
 import WhatsAppSnippet from '../../components/WhatsAppSnippet';
@@ -34,13 +35,7 @@ const HomePage = () => {
                         <BannerButtom>Contate</BannerButtom>
                     </BannerText>
                     <BannerVideo>
-                        <iframe
-                            src="https://www.youtube.com/embed/BHACKCNDMW8"
-                            title="3 Hours of Amazing Nature Scenery &amp; Relaxing Music for Stress Relief."
-                            frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowfullscreen>
-                        </iframe>
+
                     </BannerVideo>
                 </BannerContent>
             </Banner>
@@ -50,9 +45,16 @@ const HomePage = () => {
                 <CarouselComponent />
             </ImovelSection>
             <ImovelToSendSection>
-                <ImmobileCard />
+                <h2 className="section-title">Imóveis à venda</h2>
+                <div className="card-container">
+                    <ImmobileCard id={1} />
+                    <ImmobileCard id={2} />
+                    <ImmobileCard id={3} />
+                    <ImmobileCard id={4} />
+                </div>
             </ImovelToSendSection>
             <WhatsAppSnippet />
+            <Footer />
         </Container>
     );
 };

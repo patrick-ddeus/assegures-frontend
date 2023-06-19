@@ -16,7 +16,7 @@ import { ExternalContainer, Container, ImageContainer, DescContainer, DescTitle,
 const CarouselComponent = () => {
     return (
         <ExternalContainer>
-            <div className="prev-btn">
+            <div className="carousel-prev-btn">
                 <IoChevronBackSharp />
             </div>
             <Swiper
@@ -34,8 +34,8 @@ const CarouselComponent = () => {
                     crossfade: true
                 }}
                 navigation={{
-                    nextEl: '.next-btn',
-                    prevEl: '.prev-btn',
+                    nextEl: '.carousel-next-btn',
+                    prevEl: '.carousel-prev-btn',
                 }}
             >
                 <SwiperSlide>
@@ -109,7 +109,7 @@ const CarouselComponent = () => {
                     </Container>
                 </SwiperSlide>
             </Swiper >
-            <div className="next-btn">
+            <div className="carousel-next-btn">
                 <IoChevronForwardSharp />
             </div>
         </ExternalContainer>

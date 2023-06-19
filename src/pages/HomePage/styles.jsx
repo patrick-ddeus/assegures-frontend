@@ -26,6 +26,14 @@ const fadeInLeft = keyframes`
 
 export const Container = styled.div`
   overflow:hidden;
+
+  .section-title{
+      margin-top:70px;
+      margin-bottom:30px;
+      font-size:2.2em;
+      color:#002337;
+      font-weight:500;
+    }
 `;
 
 
@@ -86,9 +94,12 @@ export const BannerText = styled.div`
   }
 
   p{
+    width:500px;
     margin-bottom:50px;
     font-size:1.5em;
     font-weight:300;
+    animation: ${fadeInLeft} 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    animation-delay:.8s;
   }
 `;
 
@@ -112,12 +123,12 @@ export const BannerButtom = styled(Link)`
   transition: all .5s;
   font-weight:normal;
   animation: ${fadeInLeft} 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-  animation-delay:1.4s;
+  animation-delay:1.7s;
 
   &:hover{
-    background: #ce3232;
+    background: #2ecc71;
     border-color: transparent;
-    color: #ffffff;
+    color: #3a3a3a;
   }
 `;
 
@@ -125,17 +136,19 @@ export const ImovelSection = styled.div`
     font-family:"Poppins", sans-serif;
     width:1200px;
     margin:0 auto;
-
-    .section-title{
-      margin-top:70px;
-      margin-bottom:30px;
-      font-size:2.2em;
-      color:#002337;
-      font-weight:400;
-    }
 `;
 
 export const ImovelToSendSection = styled.div`
     width:1200px;
     margin:0 auto;
+    margin-bottom:160px;
+
+    h2.section-title{
+      margin-top:20px;
+    }
+
+    .card-container{
+      display:flex;
+      gap:20px;
+    }
 `;
