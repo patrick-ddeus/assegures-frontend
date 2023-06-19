@@ -1,17 +1,15 @@
 import React from 'react';
-import Dashboard from '../Dashboard';
-
-import { Container } from './styles';
+import DashboardTemplate from '../../components/DashboardTemplate';
+import * as Style from "./styles";
 
 function RegisterProperty() {
+
     return (
-        <div>
-            <Dashboard>
-                <Container>
-                    <h2>Olá <strong>Imobiliária</strong>!</h2>
-                </Container>
-            </Dashboard>
-        </div>
+        <Style.Container>
+            <DashboardTemplate>
+                <h2>Hello</h2>
+            </DashboardTemplate>
+        </Style.Container>
     );
 }
 

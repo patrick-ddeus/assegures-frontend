@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { SidebarColor, tran } from '../../../constants/colors';
+import { SidebarColor, tran } from '../../constants/colors';
 
 export const Sidebar = styled.nav`
   font-family:"Poppins", sans-serif;

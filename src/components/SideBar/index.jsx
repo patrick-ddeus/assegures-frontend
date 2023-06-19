@@ -24,10 +24,10 @@ const Sidebar = ({ sidebarClosed, darkMode, handleToggleSidebar, handleToggleThe
                 <Style.Menu isDark={darkMode}>
                     <article>
                         <Style.MenuItem isDark={darkMode}>
-                            <Link to="/admin/painel-de-controle/cadastro-de-imovel">
+                            <Link to="/admin/painel-de-controle">
                                 <IoHomeOutline className='icon' />
                                 <Style.MenuItemText className="text">
-                                    Cadastro de Imóveis
+                                    Painel de Controle
                                 </Style.MenuItemText>
                             </Link>
                         </Style.MenuItem>
