@@ -37,14 +37,13 @@ export const Container = styled.div`
 `;
 
 
-export const Banner = styled.div`
+export const Banner = styled.section`
   height:100vh;
   min-height:500px;
   background:url(${banner});
   background-size:cover;
   background-position:0 80%;
   animation: ${kenburnsTop} 1.9s ease-out both;
-  position:relative;
   display:flex;
   align-items:center;
 
@@ -132,13 +131,15 @@ export const BannerButtom = styled(Link)`
   }
 `;
 
-export const ImovelSection = styled.div`
+export const ImovelSection = styled.section`
     font-family:"Poppins", sans-serif;
+    position:relative;
+    z-index:340;
     width:1200px;
     margin:0 auto;
 `;
 
-export const ImovelToSendSection = styled.div`
+export const ImovelToSendSection = styled.section`
     width:1200px;
     margin:0 auto;
     margin-bottom:160px;

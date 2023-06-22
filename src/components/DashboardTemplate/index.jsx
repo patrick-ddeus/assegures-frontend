@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import useDarkMode from '../../hooks/useDarkMode';
 import Sidebar from '../../components/SideBar';
 import * as Style from './styles';
 
 function DashboardTemplate({ children }) {
-    const { darkMode, sidebarClosed, handleToggleTheme, handleToggleSidebar } = useDarkMode();
+    const { darkMode, sidebarClosed, handleToggleTheme, handleToggleSidebar, setSidebarClosed} = useDarkMode();
+    
+    useEffect(() => {
+        setSidebarClosed(true)
+    }, [])
 
     return (
         <Style.Container>

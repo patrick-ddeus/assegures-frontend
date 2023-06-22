@@ -58,7 +58,7 @@ const Sidebar = ({ sidebarClosed, darkMode, handleToggleSidebar, handleToggleThe
                             </Link>
                         </Style.MenuItem>
                         <Style.MenuItem isDark={darkMode}>
-                            <Link>
+                            <Link to="/">
                                 <IoExitOutline className='icon' />
                                 <Style.MenuItemText className="text">
                                     Sair

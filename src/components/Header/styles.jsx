@@ -12,7 +12,7 @@ export const HamburgerIcon = styled.div`
   }
 `;
 
-export const Container = styled.div`
+export const Container = styled.header`
     transition:all .4s ease;
     font-family: 'Poppins', sans-serif;
     height:${({ transparent }) => transparent ? `80px` : `70px`};

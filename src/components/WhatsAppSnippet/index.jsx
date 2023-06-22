@@ -14,15 +14,15 @@ const WhatsAppSnippet = () => {
     };
 
     useEffect(() => {
-        const fetchContacts = async () => {
-            try {
-                const response = await ContactsApi.getContacts();
-                setContacts(response);
-            } catch (error) {
-                console.error(error.message);
-            }
-        };
-        fetchContacts();
+        // const fetchContacts = async () => {
+        //     try {
+        //         const response = await ContactsApi.getContacts();
+        //         setContacts(response);
+        //     } catch (error) {
+        //         console.error(error.message);
+        //     }
+        // };
+        // fetchContacts();
     }, []);
 
     return (
@@ -35,7 +35,7 @@ const WhatsAppSnippet = () => {
                 <img src={background} alt="" />
                 <p className='title'>Olá! Estamos aqui para te ajudar.</p>
                 <Contacts>
-                    {contacts?.map((contact) => (
+                    {/* {contacts?.map((contact) => (
                         <ContactCard>
                             <ContactInfo>
                                 <img src={contact.avatar} alt="" />
@@ -49,7 +49,7 @@ const WhatsAppSnippet = () => {
                                 <span>WhatsApp</span>
                             </WhatsAppLink>
                         </ContactCard>
-                    ))}
+                    ))} */}
                 </Contacts>
             </WhatsAppContainer>
         </>
