@@ -75,9 +75,10 @@ export const BannerContent = styled.div`
 `;
 
 export const BannerText = styled.div`
+  margin-top:30px;
   h2{
     font-weight:600;
-    font-size:3em;
+    font-size:2.3em;
     letter-spacing:-1px;
     margin-top:-40px;
     margin-bottom:20px;
@@ -93,9 +94,9 @@ export const BannerText = styled.div`
   }
 
   p{
-    width:500px;
+    width:400px;
     margin-bottom:50px;
-    font-size:1.4em;
+    font-size:1.2em;
     font-weight:300;
     animation: ${fadeInLeft} 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
     animation-delay:.8s;
@@ -136,6 +137,7 @@ export const ImovelSection = styled.section`
     position:relative;
     z-index:340;
     width:1200px;
+    padding-top:120px;
     margin:0 auto;
 `;
 

@@ -41,7 +41,7 @@ const HomePage = () => {
                     </BannerContent>
                 </Banner>
                 <ImovelSection>
-                    <h2 className="section-title">Encontre o Imóvel dos seus sonhos</h2>
+                    {/* <h2 className="section-title">Encontre o Imóvel dos seus sonhos</h2> */}
                     <Filters />
                     <CarouselComponent />
                 </ImovelSection>
