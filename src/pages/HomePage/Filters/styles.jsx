@@ -4,10 +4,30 @@ import { Link } from "react-router-dom";
 export const Container = styled.div`
     display:flex;
     height:56px;
-    max-width:1000px;
+    width:100%;
+    gap:20px;
     margin:0 auto;
     justify-content:space-between;
     font-family:"Poppins", sans-serif;
+`;
+
+export const ExternalContainer = styled.div`
+  background-color:#fff;
+  width:100%;
+  height:160px;
+  position:absolute;
+  top:-160px;
+  display:flex;
+  justify-content:center;
+  flex-direction:column;
+  border-radius:5px;
+  padding:40px;
+
+  h2{
+    font-size:1rem;
+    font-weight:700;
+    color:rgb(60, 72, 88);
+  }
 `;
 
 export const Select = styled.select`
@@ -81,11 +101,18 @@ export const SuggestList = styled.div`
     .list li{
       cursor:pointer;
       padding:10px;
+      display:flex;
+      gap:10px;
 
       &:hover{
           background-color:#1f9b4c88;
       }
+
     }
+  }
+
+  .not-found{
+    padding-bottom:20px;
   }
 
 `;

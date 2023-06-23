@@ -3,7 +3,7 @@ import Header from "../../components/Header";
 
 import { Container } from './styles';
 
-function PropertiesPage() {
+function PropertiesPage () {
     return (
         <Container >
             <Header />

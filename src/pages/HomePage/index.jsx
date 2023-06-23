@@ -33,7 +33,7 @@ const HomePage = () => {
                                 </span>
                             </h2>
                             <p>Encontrar a casa, o comércio ou o escritório que você vai adorar alugar ou comprar ficou mais fácil.</p>
-                            <BannerButtom>Contate</BannerButtom>
+                            {/* <BannerButtom>Contate</BannerButtom> */}
                         </BannerText>
                         <BannerVideo>
 

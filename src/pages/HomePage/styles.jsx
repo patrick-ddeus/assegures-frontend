@@ -38,7 +38,7 @@ export const Container = styled.div`
 
 
 export const Banner = styled.section`
-  height:100vh;
+  height:80vh;
   min-height:500px;
   background:url(${banner});
   background-size:cover;
@@ -51,7 +51,7 @@ export const Banner = styled.section`
     content: "";
     position: absolute;
     top: 0;
-    height: 100vh;
+    height: 80vh;
     min-height:500px;
     left: 0;
     right: 0;
@@ -77,7 +77,7 @@ export const BannerContent = styled.div`
 export const BannerText = styled.div`
   h2{
     font-weight:600;
-    font-size:3.5em;
+    font-size:3em;
     letter-spacing:-1px;
     margin-top:-40px;
     margin-bottom:20px;
@@ -95,7 +95,7 @@ export const BannerText = styled.div`
   p{
     width:500px;
     margin-bottom:50px;
-    font-size:1.5em;
+    font-size:1.4em;
     font-weight:300;
     animation: ${fadeInLeft} 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
     animation-delay:.8s;
