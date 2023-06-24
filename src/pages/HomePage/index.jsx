@@ -26,18 +26,26 @@ const HomePage = () => {
                         <BannerText>
                             <h2>
                                 <span>
+                                    Ajudando você a encontrar o imóvel ideal!
+                                </span>
+                                <span>
+                                    Encontrar a casa, o comércio ou o escritório que você vai adorar alugar ou comprar ficou mais fácil.
+                                </span>
+                            </h2>
+                            {/* <h2>
+                                <span>
                                     Encontre Sua Nova Casa<br />
                                 </span>
                                 <span>
                                     Hoje Conosco!
                                 </span>
                             </h2>
-                            <p>Encontrar a casa, o comércio ou o escritório que você vai adorar alugar ou comprar ficou mais fácil.</p>
+                            <p>Encontrar a casa, o comércio ou o escritório que você vai adorar alugar ou comprar ficou mais fácil.</p> */}
                             {/* <BannerButtom>Contate</BannerButtom> */}
                         </BannerText>
-                        <BannerVideo>
+                        {/* <BannerVideo>
 
-                        </BannerVideo>
+                        </BannerVideo> */}
                     </BannerContent>
                 </Banner>
                 <ImovelSection>

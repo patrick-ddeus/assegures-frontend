@@ -5,14 +5,10 @@ export const Container = styled.div`
   height:400px;
   border-top-right-radius:23px;
   border-top-left-radius:23px;
-  background-color:white;
   font-family:"Poppins", sans-serif;
   cursor:pointer;
   transition: all .7s ease;
 
-  &:hover{
-    box-shadow: 0 0 30px 0 rgba(0,0,0,.1);
-  }
 `;
 
 export const ImageDiv = styled.div`
@@ -43,12 +39,11 @@ export const ImageDiv = styled.div`
   }
   
   img{
-    height:184px;
-    width:100%;
+    transition: all 1s ease;
+    height:${({ zoom }) => zoom ? `250px` : `184px`};
+    width:${({ zoom }) => zoom ? `120%` : `100%`};;
     object-fit: cover;
-    transition: transform 2s ease;
-    transform: ${({ zoom }) => zoom ? `scale(1.05)` : `scale(1)`}
-    ${({ zoom }) => zoom ? `translateX(8px)` : `translateX(0)`}
+    transform: ${({ zoom }) => zoom ? `scale(1.1)` : `scale(1)`};
   }
 
   .nav-btn{
@@ -62,17 +57,17 @@ export const ImageDiv = styled.div`
     display:flex;
     justify-content:center;
     align-items:center;
-    transition:opacity .2s ease;
+    transition:opacity .2s ease, top 1s ease;
     opacity:0;
+
+    top: ${({ zoom }) => zoom ? `120px` : `80px`};
   }
 
   .next-btn{
-    top:80px;
     right:10px;
   }
 
   .prev-btn{
-    top:80px;
     left:10px;
   }
 
@@ -81,7 +76,8 @@ export const ImageDiv = styled.div`
 export const DescDiv = styled.div`
   background-color:white;
   position:relative;
-  top:-10px;
+  transition: all .2s ease;
+  top:${({ isHovering }) => isHovering ? '0' : '-10px'};
   z-index:5;
   padding:20px;
 
@@ -112,6 +108,8 @@ export const DescDiv = styled.div`
       margin-top:10px;
       color:#1f1f1f;
   }
+
+
 `;
 
 export const PriceDiv = styled.div`
@@ -185,4 +183,6 @@ export const Label = styled.div`
   padding:10px 9px;
   border-radius:20px;
   font-weight:500;
+  transition:opacity .4s ease;
+  opacity:${({ isHovering }) => isHovering ? '0' : '1'};
 `;

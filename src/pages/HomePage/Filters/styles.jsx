@@ -1,11 +1,22 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { Link } from "react-router-dom";
+
+const fadeInLeft = keyframes`
+    0% {
+        transform: translateX(100px);
+        opacity:0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity:1;
+    }
+`;
 
 export const Container = styled.div`
     display:flex;
     height:56px;
     width:100%;
-    gap:20px;
+    gap:10px;
     margin:0 auto;
     justify-content:space-between;
     font-family:"Poppins", sans-serif;
@@ -17,17 +28,20 @@ export const ExternalContainer = styled.div`
   max-width:1100px;
   height:160px;
   position:absolute;
+  z-index:998;
   top:-80px;
   left:60px;
   display:flex;
   justify-content:center;
   flex-direction:column;
   border-radius:5px;
-  padding:40px;
+  padding:40px 25px;
+  animation: ${fadeInLeft} 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  animation-delay:1.5s;
 
   h2{
     font-size:1rem;
-    font-weight:700;
+    font-weight:600;
     color:rgb(60, 72, 88);
     padding-bottom:15px;
   }
@@ -72,14 +86,14 @@ export const SearchButton = styled(Link)`
   color:white;
   border-radius:5px;
   width:100%;
-  max-width:120px;
+  max-width:140px;
   padding:0 30px;
 `;
 
 export const SuggestList = styled.div`
   position:absolute;
   left:0;
-  padding:40px 20px 5px;
+  padding:40px 10px 5px;
   top:65px;
   width:100%;
   max-height:300px;
@@ -118,6 +132,11 @@ export const SuggestList = styled.div`
 
       &:hover{
           background-color:#1f9b4c88;
+      }
+
+      input[type="checkbox"]{
+        min-width:20px;
+        min-height:20px;
       }
 
     }

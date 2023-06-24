@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import { Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { FaBed, FaShower, FaCarAlt, FaExpand, FaChevronLeft, FaChevronRight, FaRegArrowAltCircleRight } from "react-icons/fa";
 
+import { FaBed, FaShower, FaCarAlt, FaExpand, FaChevronLeft, FaChevronRight, FaRegArrowAltCircleRight } from "react-icons/fa";
 import { Container, ImageDiv, DescDiv, PriceDiv, Title, Details, MoreDetailsButton, Label } from './styles';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
+
+import useHover from '../../hooks/useHover';
 
 const images = [
     "https://objectstorage.sa-saopaulo-1.oraclecloud.com/n/grq6lwb4htd1/b/tecimob-production/o/media/88ceb2c1-7577-4909-bcb3-9d986c3c121f/properties/8ac84fe2-2841-4d17-91cf-a6fcb9fc587d/images/600x450/outside/57db4ed4-0524-47cb-bfb2-560b8f00bf241687022736wOda.jpg",
@@ -17,11 +19,11 @@ const images = [
 ];
 
 function ImmobileCard({ id }) {
-    const [zoom, setZoom] = useState(false);
+    const [ ref, isHovering ] = useHover()
 
     return (
-        <Container>
-            <ImageDiv zoom={zoom} >
+        <Container ref={ref}>
+            <ImageDiv zoom={isHovering}>
                 <div className={`nav-btn next-btn sold-next-btn${id}`}>
                     <FaChevronRight />
                 </div>
@@ -33,11 +35,11 @@ function ImmobileCard({ id }) {
                         prevEl: `.sold-prev-btn${id}`
                     }}
                     loop={true}
-                    paceBetween={50}
+                    spaceBetween={15}
                 >
                     {images.map((image) => (
                         <SwiperSlide>
-                            <div className="overlay" onMouseEnter={() => setZoom(true)} onMouseOut={() => setZoom(false)} />
+                            <div className="overlay" />
                             <img src={image} alt="" />
                         </SwiperSlide>
                     ))}
@@ -46,7 +48,7 @@ function ImmobileCard({ id }) {
                     <FaChevronLeft />
                 </div>
             </ImageDiv>
-            <DescDiv>
+            <DescDiv isHovering={isHovering}>
                 <PriceDiv>
                     <p>Casa</p>
                     <p>R$ 480.000</p>
@@ -84,7 +86,7 @@ function ImmobileCard({ id }) {
                 <MoreDetailsButton>
                     Mais Detalhes do Imóvel
                 </MoreDetailsButton>
-                <Label>
+                <Label isHovering={isHovering}>
                     <FaRegArrowAltCircleRight />
                     <span>Venda</span>
                 </Label>
