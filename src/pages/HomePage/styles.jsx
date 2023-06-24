@@ -38,8 +38,7 @@ export const Container = styled.div`
 
 
 export const Banner = styled.section`
-  height:100vh;
-  min-height:500px;
+  height:73vh;
   background:url(${banner});
   background-size:cover;
   background-position:0 80%;
@@ -51,8 +50,7 @@ export const Banner = styled.section`
     content: "";
     position: absolute;
     top: 0;
-    height: 100vh;
-    min-height:500px;
+    height: 73vh;
     left: 0;
     right: 0;
     z-index: -1;
@@ -67,7 +65,8 @@ export const BannerContent = styled.div`
   font-family: 'Poppins', sans-serif;
   display:flex;
   align-items:center;
-  justify-content:space-between;
+  justify-content:center;
+  flex-direction:column;
   max-width:1100px;
   width:100%;
   margin:0 auto;
@@ -77,10 +76,13 @@ export const BannerContent = styled.div`
 export const BannerText = styled.div`
   h2{
     font-weight:600;
-    font-size:3.5em;
+    font-size:2.5em;
     letter-spacing:-1px;
     margin-top:-40px;
     margin-bottom:20px;
+    display:flex;
+    flex-direction:column;
+    gap:7px;
 
     span:nth-child(1){
 	    animation: ${fadeInLeft} 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
@@ -88,14 +90,18 @@ export const BannerText = styled.div`
 
     span:nth-child(2){
 	    animation: ${fadeInLeft} 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-        animation-delay:.5s;
+      animation-delay:.5s;
+      font-size:1rem;
+      font-weight:300;
+      max-width:600px;
+      text-align:center;
     }
   }
 
   p{
-    width:500px;
+    width:400px;
     margin-bottom:50px;
-    font-size:1.5em;
+    font-size:1.2em;
     font-weight:300;
     animation: ${fadeInLeft} 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
     animation-delay:.8s;
@@ -136,6 +142,7 @@ export const ImovelSection = styled.section`
     position:relative;
     z-index:340;
     width:1200px;
+    padding-top:80px;
     margin:0 auto;
 `;
 
