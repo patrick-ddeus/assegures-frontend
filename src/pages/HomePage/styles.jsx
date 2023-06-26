@@ -141,7 +141,8 @@ export const ImovelSection = styled.section`
     font-family:"Poppins", sans-serif;
     position:relative;
     z-index:340;
-    width:1200px;
+    max-width:1200px;
+    width:100%;
     padding-top:80px;
     margin:0 auto;
 `;

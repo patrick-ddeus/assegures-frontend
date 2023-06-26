@@ -1,7 +1,19 @@
 import React, { useEffect, useReducer } from 'react';
+
 import AddressApi from '../../../service/address';
 import PropertyApi from '../../../service/property';
-import { Select, Container, Input, InputArea, SearchButton, SuggestList, ExternalContainer } from './styles';
+
+import Dropdown from '../../../components/Dropdown'
+
+import {
+    Container,
+    Input,
+    InputArea,
+    SearchButton,
+    SuggestList,
+    ExternalContainer,
+    InputGroup,
+} from './styles';
 
 const reducer = (state, action) => {
     switch (action.type) {
@@ -13,9 +25,11 @@ const reducer = (state, action) => {
             return state;
     }
 };
+
 const Filters = () => {
     const [inputValue, setInputValue] = React.useState('');
-    const [inputFilter, setInputFilter] = React.useState([]);
+    const [invalidInput, setInvalidInput] = React.useState(false);
+    const [suggests, setSuggests] = React.useState([]);
     const [hideSuggest, setHideSuggest] = React.useState(true);
 
     const [filters, dispatch] = useReducer(reducer, {
@@ -27,18 +41,29 @@ const Filters = () => {
     const handleChange = (event) => {
         setInputValue(event.target.value);
 
-        if (inputFilter.length > 0 || inputValue.length > 1) {
+        if (suggests.length > 0 || inputValue.length > 1) {
             setHideSuggest(false);
         }
     };
 
     const handleToggleHideSuggest = () => {
-        if (inputFilter.length > 0) {
+        if (suggests.length > 0) {
             setHideSuggest(!hideSuggest);
         }
     };
 
     const handleButtonClick = async () => {
+        if (
+            filters.cities.length === 0 &&
+            filters.districts.length === 0 &&
+            filters.streets.length === 0
+        ) {
+            setInvalidInput(true)
+            return
+        } else {
+            setInvalidInput(false)
+        }
+
         const queryParams = new URLSearchParams(filters);
 
         try {
@@ -52,7 +77,8 @@ const Filters = () => {
         const fetchSuggest = async () => {
             try {
                 const results = await AddressApi.getAddress(inputValue);
-                setInputFilter(results);
+                console.log(results)
+                setSuggests(results);
             } catch (error) {
                 console.log(error.message);
             }
@@ -71,42 +97,47 @@ const Filters = () => {
         <ExternalContainer>
             <h2>Seu imóvel ideal aqui</h2>
             <Container>
-                <Select id="finalidade">
-                    <option value="">Finalidade</option>
-                    <option value="compra">Compra</option>
-                    <option value="aluguel">Aluguel</option>
-                </Select>
-                
-                <Select id="finalidade">
-                    <option value="">Finalidade</option>
-                    <option value="compra">Compra</option>
-                    <option value="aluguel">Aluguel</option>
-                </Select>
-
-                <Select id="tipo-imovel">
-                    <option value="">Tipo</option>
-                    <option value="casa">Casa</option>
-                    <option value="apartamento">Apartamento</option>
-                    <option value="terreno">Terreno</option>
-                </Select>
-                <InputArea>
-                    <Input
-                        type="text"
-                        id=""
-                        placeholder='Pesquise nome da rua, cidade ou bairro'
-                        onChange={handleChange}
-                        onClick={handleToggleHideSuggest}
-                        value={inputValue}
+                <InputGroup aria-label='multiselect'>
+                    <label htmlFor="finalidade">Finalidade</label>
+                    <Dropdown
+                        label={"Finalidade"}
+                        labelId={"finalidade"}
+                        list={["Comprar", "Alugar"]}
+                        top={"55px"}
                     />
+                </InputGroup>
+
+                <InputGroup aria-label='multiselect'>
+                    <label htmlFor="tipo-imovel">Tipo de Imóvel</label>
+                    <Dropdown
+                        label={"Tipo de imóvel"}
+                        labelId={"tipo-imovel"}
+                        top={"55px"} />
+                </InputGroup>
+
+
+                <InputArea>
+                    <InputGroup>
+                        <label htmlFor="input-search">Onde deseja morar?</label>
+                        <Input
+                            type="text"
+                            id="input-search"
+                            placeholder='Pesquise nome da rua, cidade ou bairro'
+                            onChange={handleChange}
+                            onClick={handleToggleHideSuggest}
+                            value={inputValue}
+                            isInvalid={invalidInput}
+                        />
+                    </InputGroup>
                     <SuggestList hide={hideSuggest}>
-                        {inputFilter?.length !== 0 ? (
-                            <>
+                        {suggests.length > 0 ? (
+                            <div>
                                 <div className="divider cities">
                                     <p className="title">
                                         Cidade
                                     </p>
                                     <ul className="list city-list">
-                                        {inputFilter[0].cities.map((item) => (
+                                        {suggests[0]?.cities?.map((item) => (
                                             <>
                                                 <li key={item.id}>
                                                     <input
@@ -124,7 +155,7 @@ const Filters = () => {
                                         Bairros
                                     </p>
                                     <ul className="list district-list">
-                                        {inputFilter[0].districts.map((item) => (
+                                        {suggests[0]?.districts?.map((item) => (
                                             <>
                                                 <li key={item.id} >
                                                     <input
@@ -144,7 +175,7 @@ const Filters = () => {
                                         Ruas
                                     </p>
                                     <ul className="list street-list">
-                                        {inputFilter[0].streets.map((item) => (
+                                        {suggests[0]?.streets?.map((item) => (
                                             <>
                                                 <li key={item.id}>
                                                     <input
@@ -158,7 +189,7 @@ const Filters = () => {
                                         ))}
                                     </ul>
                                 </div>
-                            </>
+                            </div>
                         ) : (
                             <div className="not-found">
                                 Não foram encontrados resultados
@@ -166,9 +197,12 @@ const Filters = () => {
                         )}
                     </SuggestList>
                 </InputArea>
-                <SearchButton onClick={handleButtonClick}>
-                    Buscar
-                </SearchButton>
+                <InputGroup>
+                    <label htmlFor="">Pesquisar</label>
+                    <SearchButton onClick={handleButtonClick}>
+                        Buscar
+                    </SearchButton>
+                </InputGroup>
 
                 {/* <Select id="ordenar">
                 <option value="">Ordenar</option>

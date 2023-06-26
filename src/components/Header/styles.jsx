@@ -26,12 +26,12 @@ export const Container = styled.header`
     `}
 
     p{
-        font-size:32px;
-
-        span{
-            transition:all .4s ease;
-            color:${({ transparent }) => !transparent ? `white` : `#1f9b4c`};
-        }
+      padding-left:10px;
+      font-size:32px;
+      span{
+          transition:all .4s ease;
+          color:${({ transparent }) => !transparent ? `white` : `#1f9b4c`};
+      }
     }
 
 `;
@@ -39,8 +39,10 @@ export const Container = styled.header`
 export const ContainerControl = styled.div`
   display:flex;
   align-items:center;
+  justify-content:space-between;
   gap:8rem;
-  width:1210px;
+  width:100%;
+  max-width:1210px;
   margin:0 auto;
   height:100%;
 
@@ -107,6 +109,11 @@ export const IconsList = styled.div`
     &:hover{
       color:#E1306C;
     }
+  }
+
+  @media screen and (max-width: 1100px) {
+    display: none;
+    
   }
 `;
 
