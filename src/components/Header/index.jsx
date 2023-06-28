@@ -35,7 +35,7 @@ const Header = () => {
                 <nav>
                     <NavList isOpen={menuOpen}>
                         <NavItem>
-                            <NavLink transparent={isTransparent}>
+                            <NavLink transparent={isTransparent} to={'/'}>
                                 Início
                             </NavLink>
                         </NavItem>
@@ -45,7 +45,7 @@ const Header = () => {
                             </NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink transparent={isTransparent}>
+                            <NavLink transparent={isTransparent} to={'/aluguel/imoveis'}>
                                 Alugar
                             </NavLink>
                         </NavItem>

@@ -15,6 +15,8 @@ import {
     InputGroup,
 } from './styles';
 
+import { useNavigate } from 'react-router-dom';
+
 const reducer = (state, action) => {
     switch (action.type) {
         case "ADD_FILTER":
@@ -31,6 +33,8 @@ const Filters = () => {
     const [invalidInput, setInvalidInput] = React.useState(false);
     const [suggests, setSuggests] = React.useState([]);
     const [hideSuggest, setHideSuggest] = React.useState(true);
+
+    const navigate = useNavigate()
 
     const [filters, dispatch] = useReducer(reducer, {
         cities: [],
@@ -68,6 +72,7 @@ const Filters = () => {
 
         try {
             const resultado = await PropertyApi.getPropertiesWithFilter(queryParams)
+            navigate(`/venda/imoveis?${queryParams}`)
         } catch (error) {
 
         }
@@ -77,7 +82,6 @@ const Filters = () => {
         const fetchSuggest = async () => {
             try {
                 const results = await AddressApi.getAddress(inputValue);
-                console.log(results)
                 setSuggests(results);
             } catch (error) {
                 console.log(error.message);
@@ -112,7 +116,9 @@ const Filters = () => {
                     <Dropdown
                         label={"Tipo de imóvel"}
                         labelId={"tipo-imovel"}
-                        top={"55px"} />
+                        top={"55px"}>
+
+                    </Dropdown>
                 </InputGroup>
 
 

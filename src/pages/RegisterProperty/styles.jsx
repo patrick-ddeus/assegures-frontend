@@ -5,6 +5,7 @@ font-family:"Poppins", sans-serif;
   .divider {
     display: flex;
     align-items: center;
+    margin-bottom:10px;
   }
 
   .dots {
@@ -22,29 +23,52 @@ font-family:"Poppins", sans-serif;
   }
 `;
 
+export const WarningParagraph = styled.p`
+  font-size:15px;
+  margin-bottom:20px;
+`;
+
 export const GridContainer = styled.div`
   display:grid;
   grid-template-columns:1fr 1fr;
   grid-column-gap:10px;
-  margin-top:40px;
 `;
 
 export const GridColumn = styled.div`
   display:flex;
   flex-direction:column;
   gap:10px;
+  margin-top:10px;
 `;
 
 export const GridThreeColumns = styled.div`
   display:grid;
   grid-template-columns:1fr 3fr 1fr;
-   grid-column-gap:10px;
+  grid-column-gap:10px;
 `;
 
 export const AddressGridColumn = styled.div`
   display:grid;
   grid-template-columns:1fr 2fr 2fr;
    grid-column-gap:10px;
+
+`;
+
+export const SelectAddress = styled.select`
+    width: 100%;
+    min-height: 46px;
+    padding: 0 10px;
+    font-size: 15px;
+    background-color: #fff;
+    border: 1px solid #cfd4dd;
+    border-radius: 5px;
+    cursor: pointer;
+    transition:all .2s ease;
+    color:#5e6a82;
+
+    option:first-child{
+      color:white;
+    }
 `;
 
 export const GridTwoColumns = styled.div`
@@ -86,7 +110,16 @@ export const FirstGroup = styled.div`
 `;
 
 export const RadioGroup = styled.div`
-  
+  height:100%;
+  display:flex;
+  align-items:center;
+  gap:15px;
+
+  label{
+    display:flex;
+    gap:5px;
+    font-size:14px;
+  }
 `;
 
 export const SelectGroup = styled.div`
