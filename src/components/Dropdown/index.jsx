@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { Container, DropdownContent, DropdownTrigger, ChevronDown } from './styles';
 
-function Dropdown({ children, label, labelId, list, top, suggestsBg }) {
+function Dropdown({ children, label, labelId, list, top, suggestsBg, onSelect }) {
   const [hide, setHide] = useState(true)
 
   return (
@@ -18,7 +18,7 @@ function Dropdown({ children, label, labelId, list, top, suggestsBg }) {
         </DropdownTrigger>
         <DropdownContent hide={hide} position={top} bg={suggestsBg}>
           {list?.map((item, index) => (
-            <li key={index}>{item}</li>
+            <li onClick={() => onSelect(item)} key={index}>{item}</li>
           ))}
           {children}
         </DropdownContent>

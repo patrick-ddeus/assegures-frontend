@@ -52,8 +52,6 @@ export const GridContainer = styled.section`
 `;
 
 export const GridColumn = styled.div`
-  height:250px;
-
  
 `;
 
@@ -69,7 +67,18 @@ export const FirstSection = styled.section`
   border-radius:7px;
 `;
 
+export const SecondSection = styled.section`
+  padding:20px;
+  background-color:white;
+  height:100%;
+  border: 1px solid rgba(226, 228, 232, 0.8);
+  border-radius:7px;
+  margin-top:20px;
+`;
+
 export const InputGroup = styled.div`
+  position:relative;
+  margin-top:20px;
   label{
     font-size:13px;
     font-weight:500;
@@ -90,9 +99,17 @@ export const InputGroup = styled.div`
   }
 `;
 
+export const FilterGroup = styled.div`
+  p{
+    margin-top:10px;
+  }
+`;
+
 export const FilterList = styled.ul`
   display:flex;
   margin-top:10px;
+  flex-wrap:wrap;
+  gap:5px;
 `;
 
 export const FilterItem = styled.li`
@@ -104,8 +121,75 @@ export const FilterItem = styled.li`
   align-items:center;
   gap:10px;
   cursor:pointer;
+  color:green;
 
   svg{
     font-size:15px;
+    transition: all .2s ease;
+    min-width:15px;
   }
+
+  &:hover{
+    svg{
+      background-color:green;
+      color:white;
+      border-radius:20px;
+    }
+  }
+`;
+
+export const SuggestList = styled.div`
+  margin-top:10px;
+  padding:40px 10px 20px;
+  width:100%;
+  max-height:300px;
+  background-color:white;
+  overflow:auto;
+  z-index:${({ hide }) => hide ? '-1' : '999'};
+  opacity: ${({ hide }) => hide ? '0' : '1'};
+  border:1px solid #cfd4dd;
+  border-radius:5px;
+  transition:all .2s ease-in-out;
+  color:#3c4453;
+ 
+
+  &::-webkit-scrollbar {
+    display: none;
+    }
+
+  div{
+    font-size:16px;
+  }
+
+  .divider{
+    padding:15px;
+
+    .title{
+      margin-bottom:10px;
+      font-size:16px;
+      font-weight:500;
+    }
+
+    .list li{
+      cursor:pointer;
+      padding:10px;
+      display:flex;
+      gap:10px;
+
+      &:hover{
+          background-color:#1f9b4c88;
+      }
+
+      input[type="checkbox"]{
+        min-width:20px;
+        min-height:20px;
+      }
+
+    }
+  }
+
+  .not-found{
+    padding-bottom:20px;
+  }
+
 `;

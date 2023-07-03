@@ -17,12 +17,23 @@ import {
 
 import { useNavigate } from 'react-router-dom';
 
+import GoalData from "./OptionsData/goal-data"
+
 const reducer = (state, action) => {
     switch (action.type) {
         case "ADD_FILTER":
             return { ...state, [action.filterType]: [...state[action.filterType], action.filterValue] };
         case "REMOVE_FILTER":
             return { ...state, [action.filterType]: state[action.filterType].filter(value => value !== action.filterValue) };
+        case "ADD_FILTER_STRING":
+            return { ...state, [action.filterType]: action.filterValue };
+        case "RESET_FILTER":
+            return {
+                cities: [],
+                districts: [],
+                streets: [],
+                goal: 'Comprar'
+            }
         default:
             return state;
     }
@@ -39,7 +50,8 @@ const Filters = () => {
     const [filters, dispatch] = useReducer(reducer, {
         cities: [],
         districts: [],
-        streets: []
+        streets: [],
+        goal: 'Comprar'
     });
 
     const handleChange = (event) => {
@@ -72,9 +84,9 @@ const Filters = () => {
 
         try {
             const resultado = await PropertyApi.getPropertiesWithFilter(queryParams)
-            navigate(`/venda/imoveis?${queryParams}`)
+            navigate(`/${filters.goal}/imoveis?${queryParams}`)
         } catch (error) {
-
+            console.log(error.message)
         }
     }
 
@@ -104,11 +116,18 @@ const Filters = () => {
                 <InputGroup aria-label='multiselect'>
                     <label htmlFor="finalidade">Finalidade</label>
                     <Dropdown
-                        label={"Finalidade"}
+                        label={filters.goal}
                         labelId={"finalidade"}
-                        list={["Comprar", "Alugar"]}
                         top={"55px"}
-                    />
+                    >
+                        {GoalData.map((options) => (
+                            <li
+                                key={options.value}
+                                onClick={() => dispatch({ type: 'ADD_FILTER_STRING', filterType: 'goal', filterValue: options.name })}>
+                                {options.name}
+                            </li>
+                        ))}
+                    </Dropdown>
                 </InputGroup>
 
                 <InputGroup aria-label='multiselect'>
