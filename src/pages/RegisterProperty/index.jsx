@@ -57,7 +57,6 @@ function RegisterProperty() {
             try {
                 const response = await fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${estadoSelecionado}/municipios`);
                 const data = await response.json();
-                console.log(data)
                 setCidades(data);
             } catch (error) {
                 console.log('Erro ao carregar as cidades', error);

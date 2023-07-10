@@ -9,7 +9,7 @@ function App() {
     <Router>
       <Routes>
         <Route path='/' element={<HomePage />} />
-        <Route path='/:tipo/imoveis' element={<PropertiesPage />} />
+        <Route path='/:finalidade/imoveis' element={<PropertiesPage />} />
         <Route path='/admin/painel-de-controle' element={<Dashboard />} />
         <Route path='/admin/painel-de-controle/cadastro-de-imovel' element={<RegisterProperty />} />
       </Routes>
