@@ -37,6 +37,8 @@ export const DropdownTrigger = styled.div`
 
       p {
         max-width: 200px;
+        height:20px;
+        margin-top:5px;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;

@@ -49,17 +49,25 @@ export const GridContainer = styled.section`
   display: grid;
   grid-template-columns: 1fr 3fr;
   grid-column-gap: 10px;
+  margin-top: 40px;
 `;
 
-export const GridColumn = styled.div``;
+export const GridColumn = styled.div`
+  .propertyDisplay {
+    font-size: 22px;
+    font-weight: 600;
+    color: rgb(60, 72, 88);
+    margin-bottom: 15px;
+  }
+`;
 
 export const Property = styled.div``;
 
 export const FirstSection = styled.section`
   padding: 20px;
-  background-color: white;
+  background-color: #68d391;
   height: 100%;
-  border: 1px solid rgba(226, 228, 232, 0.8);
+  border: 1px solid #00a896;
   border-radius: 7px;
 `;
 
@@ -77,14 +85,13 @@ export const InputGroup = styled.div`
   margin-top: 20px;
 
   label {
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 500;
-    text-transform: uppercase;
     color: rgb(60, 72, 88);
     margin-bottom: 5px;
   }
 
-  input {
+  .localeInput {
     margin-top: 8px;
     height: 42px;
     width: 100%;
@@ -111,7 +118,7 @@ export const FilterList = styled.ul`
 `;
 
 export const FilterItem = styled.li`
-  border: 1px solid green;
+  border: 1px solid rgb(60, 72, 88);
   border-radius: 20px;
   padding: 5px 10px;
   display: flex;
@@ -119,7 +126,8 @@ export const FilterItem = styled.li`
   align-items: center;
   gap: 10px;
   cursor: pointer;
-  color: green;
+  color: rgb(60, 72, 88);
+  font-weight: 500;
 
   svg {
     font-size: 15px;
@@ -129,8 +137,8 @@ export const FilterItem = styled.li`
 
   &:hover {
     svg {
-      background-color: green;
-      color: white;
+      background-color: white;
+      color: #46cf46;
       border-radius: 20px;
     }
   }
@@ -186,5 +194,55 @@ export const SuggestList = styled.div`
 
   .not-found {
     padding-bottom: 20px;
+  }
+`;
+export const GoalDivider = styled.div`
+  position: relative;
+  width: 100%;
+`;
+
+export const CurrencyArea = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  span {
+    margin-top: 10px;
+    color: rgb(60, 72, 88);
+    font-size: 14px;
+  }
+`;
+
+export const RoomsArea = styled.section`
+  h4 {
+    font-size: 15px;
+    font-weight: 500;
+    color: rgb(60, 72, 88);
+    margin-bottom: 5px;
+    margin-top: 10px;
+  }
+
+  ul {
+    display: flex;
+    gap: 10px;
+  }
+`;
+
+export const RoomOption = styled.li`
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  color: rgb(60, 72, 88);
+  cursor: pointer;
+  transition: all 0.5s ease;
+
+  &:hover {
+    background-color: rgb(60, 72, 88);
+    color: white;
   }
 `;

@@ -60,7 +60,7 @@ export const ExternalContainer = styled.div`
   border-radius:5px;
   padding:25px 25px 40px;
   animation: ${fadeInLeft} 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-  animation-delay:1.5s;
+  animation-delay:1s;
 
   h2{
     font-size:1rem;
@@ -145,6 +145,7 @@ export const SuggestList = styled.div`
 
   .not-found{
     padding-bottom:20px;
+    
   }
 
 `;

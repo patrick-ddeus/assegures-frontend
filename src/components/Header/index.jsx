@@ -45,7 +45,7 @@ const Header = () => {
                             </NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink transparent={isTransparent} to={'/alugar/imoveis'}>
+                            <NavLink transparent={isTransparent} to={'/Alugar/imoveis'}>
                                 Alugar
                             </NavLink>
                         </NavItem>

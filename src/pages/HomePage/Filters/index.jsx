@@ -38,10 +38,12 @@ const reducer = (state, action) => {
       return { ...state, [action.filterType]: action.filterValue };
     case 'RESET_FILTER':
       return {
+        ...state,
         cities: [],
         districts: [],
         streets: [],
-        goal: 'Comprar',
+        propertyType: 1,
+        propertySubType: 1,
       };
     default:
       return state;
@@ -76,7 +78,7 @@ const Filters = () => {
   };
 
   const handleToggleHideSuggest = () => {
-    if (suggests.length > 0) {
+    if (suggests?.cities?.length > 0 || inputValue.length > 1) {
       setHideSuggest(!hideSuggest);
     }
   };
@@ -94,7 +96,6 @@ const Filters = () => {
     }
 
     const queryParams = new URLSearchParams(filters);
-    console.log(queryParams);
     try {
       await PropertyApi.getPropertiesWithFilter(queryParams);
       navigate(`/${filters.goal}/imoveis?${queryParams}`);
@@ -114,7 +115,6 @@ const Filters = () => {
     const fetchTypes = async () => {
       try {
         const types = await PropertyApi.getPropertiesTypes();
-        console.log(types);
         setPropertyList(types);
       } catch (error) {
         console.log(error.message);
@@ -135,11 +135,11 @@ const Filters = () => {
     if (inputValue.length > 1) {
       fetchSuggest();
     }
-  }, [inputValue]);
+  }, [inputValue, filters]);
 
   useEffect(() => {
-    console.log(filters);
-  }, [filters]);
+    dispatch({ type: 'RESET_FILTER' });
+  }, [filters.goal]);
 
   return (
     <ExternalContainer>
@@ -214,12 +214,39 @@ const Filters = () => {
             />
           </InputGroup>
           <SuggestList hide={hideSuggest}>
-            {suggests.length > 0 ? (
+            {suggests?.cities?.length > 0 ||
+            suggests?.districts?.length > 0 ||
+            suggests?.streets?.length > 0 ? (
               <div>
+                {/* {filters.cities.length > 0 ||
+                filters.districts.length > 0 ||
+                filters.streets.length > 0 ? (
+                  <>
+                    <h1>Selecionados</h1>
+                    {filters.cities.map((item) => (
+                      <>
+                        <li key={item}>
+                          <input
+                            type="checkbox"
+                            checked={filters.cities.includes(item)}
+                            onClick={() =>
+                              handleToggleFilter('cities', item)
+                            }
+                          />
+                          <span>
+                            {item}
+                          </span>
+                        </li>
+                      </>
+                    ))}
+                  </>
+                ) : (
+                  ''
+                )} */}
                 <div className="divider cities">
                   <p className="title">Cidade</p>
                   <ul className="list city-list">
-                    {suggests[0]?.cities?.map((item) => (
+                    {suggests?.cities?.map((item) => (
                       <>
                         <li key={item.id}>
                           <input
@@ -240,7 +267,7 @@ const Filters = () => {
                 <div className="divider districts">
                   <p className="title">Bairros</p>
                   <ul className="list district-list">
-                    {suggests[0]?.districts?.map((item) => (
+                    {suggests?.districts?.map((item) => (
                       <>
                         <li key={item.id}>
                           <input
@@ -262,7 +289,7 @@ const Filters = () => {
                 <div className="divider streets">
                   <p className="title">Ruas</p>
                   <ul className="list street-list">
-                    {suggests[0]?.streets?.map((item) => (
+                    {suggests?.streets?.map((item) => (
                       <>
                         <li key={item.id}>
                           <input
@@ -291,12 +318,6 @@ const Filters = () => {
           <label htmlFor="">Pesquisar</label>
           <SearchButton onClick={handleButtonClick}>Buscar</SearchButton>
         </InputGroup>
-
-        {/* <Select id="ordenar">
-                <option value="">Ordenar</option>
-                <option value="preco-asc">Menores Valores</option>
-                <option value="preco-desc">Maiores Valores</option>
-            </Select> */}
       </Container>
     </ExternalContainer>
   );

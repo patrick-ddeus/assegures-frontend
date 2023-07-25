@@ -1,33 +1,36 @@
-import axios, { AxiosError } from "axios";
+import axios, { AxiosError } from 'axios';
 
 const axiosInstance = axios.create({
-    baseURL: "http://localhost:5000/",
-    headers: { "Content-Type": "application/json" },
+  baseURL: 'http://localhost:5000/',
+  headers: { 'Content-Type': 'application/json' },
 });
 
-
 const queryStringBuilder = (query) =>
-    Object.keys(query).length
-        ? `?${Object.keys(query)
-            .map((param) => `${param}=${query[param]}`)
-            .join("&")}`
-        : "";
+  Object.keys(query).length
+    ? `?${Object.keys(query)
+        .map((param) => `${param}=${query[param]}`)
+        .join('&')}`
+    : '';
 
 const axiosEndpoints = {};
 
-["get", "post", "delete"].forEach((method) => {
-    axiosEndpoints[method] = async function (route, body, query = {}, fullResponse = false) {
-        try {
-            const url = `${route}${queryStringBuilder(query)}`;
-            console.log(url)
-            const response = await axiosInstance({ method, url, data: body });
+['get', 'post', 'delete'].forEach((method) => {
+  axiosEndpoints[method] = async function (
+    route,
+    body,
+    query = {},
+    fullResponse = false
+  ) {
+    try {
+      const url = `${route}${queryStringBuilder(query)}`;
 
-            return fullResponse ? response : response.data;
-        } catch (error) {
-            console.error(error.message);
-            throw new AxiosError(error);
-        }
-    };
+      const response = await axiosInstance({ method, url, data: body });
+      return fullResponse ? response : response.data;
+    } catch (error) {
+      console.error(error.message);
+      throw new AxiosError(error);
+    }
+  };
 });
 
 export default axiosEndpoints;

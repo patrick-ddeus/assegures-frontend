@@ -8,8 +8,6 @@ import Dropdown from '../../components/Dropdown';
 import * as Style from "./styles";
 import useDarkMode from '../../hooks/useDarkMode';
 
-import { NumericFormat } from 'react-number-format';
-
 function RegisterProperty() {
     const { register, handleSubmit, controll } = useForm()
     const { darkMode } = useDarkMode();
