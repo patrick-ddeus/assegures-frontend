@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 import {
   Container,
@@ -17,10 +17,29 @@ function Dropdown({
   onSelect,
 }) {
   const [hide, setHide] = useState(true);
+  const dropdownRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setHide(true);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   return (
     <>
-      <Container aria-label="dropdown" onClick={() => setHide(!hide)}>
+      <Container
+        aria-label="dropdown"
+        onClick={() => setHide(!hide)}
+        ref={dropdownRef}
+      >
         <DropdownTrigger>
           <button id={labelId} type="button">
             <div>

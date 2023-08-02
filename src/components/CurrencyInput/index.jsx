@@ -1,24 +1,40 @@
 import React from 'react';
-import { Input } from './styles';
+import { Container, Input } from './styles';
 
-function CurencyInput({ value, setValue, onFocus, onBlur }) {
+function NumberInput({
+  value,
+  setValue,
+  onFocus,
+  onBlur,
+  onKeyDown,
+  isCurrency,
+  isArea,
+}) {
   const handleOnChange = (event) => {
     const inputValue = event.target.value;
     const numericValue = inputValue.replace(/\D+/g, '');
 
-    const formatedValueWithThousandDot = numericValue.replace(/\B(?=(\d{3})+\b)/g, '.');
-
-    setValue(formatedValueWithThousandDot);
+    const formatedValueWithThousandDot = numericValue.replace(
+      /\B(?=(\d{3})+\b)/g,
+      '.'
+    );
+    if (inputValue.length < 11) setValue(formatedValueWithThousandDot);
   };
 
   return (
-    <Input
-      value={value}
-      onChange={handleOnChange}
-      onFocus={onFocus}
-      onBlur={onBlur}
-    />
+    <Container>
+      {isCurrency && <span className="prevAsset">R$</span>}
+      <Input
+        isArea={isArea}
+        value={value}
+        onChange={handleOnChange}
+        onFocus={onFocus}
+        onBlur={onBlur}
+        onKeyDown={onKeyDown}
+      />
+      {isArea && <span className="afterAsset">m²</span>}
+    </Container>
   );
 }
 
-export default CurencyInput;
+export default NumberInput;

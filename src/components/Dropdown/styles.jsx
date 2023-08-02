@@ -8,7 +8,8 @@ export const Container = styled.div`
   padding: 0 10px;
   font-size: 15px;
   background-color: #fff;
-  border: 1px solid #cfd4dd;
+  border: 1px solid #0000001e;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   display: flex;
   align-items: center;
@@ -24,6 +25,8 @@ export const Container = styled.div`
 
 export const DropdownTrigger = styled.div`
   width: 100%;
+  font-size: 14px;
+
   button {
     width: 100%;
     height: 100%;
@@ -37,13 +40,13 @@ export const DropdownTrigger = styled.div`
 
       p {
         max-width: 200px;
-        height:20px;
-        margin-top:5px;
+        height: 20px;
+        margin-top: 5px;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
         font-weight: 400;
-        color: #5e6a82;
+        color: #00000071;
       }
     }
   }
