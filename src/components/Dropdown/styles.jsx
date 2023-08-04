@@ -1,22 +1,21 @@
-import styled from 'styled-components';
-import { IoChevronDownOutline } from 'react-icons/io5';
+import styled from "styled-components";
+import { IoChevronDownOutline } from "react-icons/io5";
 
 export const Container = styled.div`
   position: relative;
   width: 100%;
   min-height: 46px;
-  padding: 0 10px;
+  padding: ${({ p }) => p};
   font-size: 15px;
   background-color: #fff;
   border: 1px solid #0000001e;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   cursor: pointer;
-  margin-top: 5px;
+  margin: ${({ m }) => m};
 
   &:focus {
     outline: 2px solid #1f9b4c88;
@@ -65,8 +64,9 @@ export const DropdownContent = styled.ul`
   border-radius: 5px;
   transition: all 0.2s ease-in-out;
   color: #3c4453;
-  z-index: ${({ hide }) => (hide ? '-1' : '999')};
-  opacity: ${({ hide }) => (hide ? '0' : '1')};
+  z-index: ${({ hide }) => (hide ? "-1" : "999")};
+  opacity: ${({ hide }) => (hide ? "0" : "1")};
+  scale: ${({ hide }) => (hide ? "0.9" : "1")};
 
   li {
     cursor: pointer;
@@ -94,5 +94,5 @@ export const ChevronDown = styled(IoChevronDownOutline)`
   opacity: 1;
   transition: transform 0.2s ease;
   transform: ${({ rotateWhen }) =>
-    rotateWhen ? 'rotate(0)' : 'rotate(-180deg)'};
+    rotateWhen ? "rotate(0)" : "rotate(-180deg)"};
 `;

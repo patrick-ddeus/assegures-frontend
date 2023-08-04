@@ -14,15 +14,26 @@ import {
   PropertyDescription,
   DetailsButton,
   ContactArea,
+  Characteristics,
+  StyledBed,
+  StyledCar,
+  StyledScanner,
+  StyledBath,
+  EmailButton,
+  StyledEmail,
 } from "./styles";
 
 import { useSearchParams, useParams } from "react-router-dom";
 import FiltersColumn from "./FiltersColumn";
+import Swiper, { Navigation } from "swiper";
+import { SwiperSlide } from "swiper/react";
 
 const MIN_PRICE_FILTER = "250.000";
 const MAX_PRICE_FILTER = "1.500.000";
 const MIN_AREA_FILTER = "";
 const MAX_AREA_FILTER = "8.200";
+
+const images = []
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -97,7 +108,6 @@ function PropertiesPage() {
 
   useEffect(() => {
     if (!isFocused) {
-      console.log("tA CHAMANDO");
       const queryParams = new URLSearchParams(nonEmptyFilters);
       setSearchParams(queryParams);
 
@@ -171,20 +181,50 @@ function PropertiesPage() {
               {properties?.map((property) => (
                 <Property>
                   <PropertyImage>
-                    <img src="http://loremflickr.com/640/480" alt="" />
+                    {/* <Swiper
+                      modules={[Navigation]}
+                      slidesPerView={1}
+                      navigation={{
+                        nextEl: `.sold-next-btn`,
+                        prevEl: `.sold-prev-btn`,
+                      }}
+                      loop={true}
+                      spaceBetween={15}
+                    >
+                      {images.map((image) => (
+                        <SwiperSlide>
+                          <div className="overlay" />
+                          <img src={image} alt="" />
+                        </SwiperSlide>
+                      ))}
+                    </Swiper> */}
                   </PropertyImage>
                   <PropertyDescription>
                     <p>{property.short_description}</p>
-                    <p>
-                      <span>{property.number_of_rooms} Dorms</span>
-                      <span>{property.number_of_bathrooms} Banheiros</span>
-                      <span>{property.suites} Suítes</span>
-                      <span>{property.number_of_garages} Vagas</span>
-                    </p>
+                    <Characteristics>
+                      <span>
+                        <StyledScanner />
+                        {property.building_area} Area
+                      </span>
+                      <span>
+                        <StyledBed /> {property.number_of_rooms} Dormitórios e{" "}
+                        {property.suites} Suíte
+                      </span>
+                      <span>
+                        <StyledBath /> {property.number_of_bathrooms} Banheiros{" "}
+                      </span>
+                      <span>
+                        <StyledCar />
+                        {property.number_of_garages} Vagas
+                      </span>
+                    </Characteristics>
                     <p>02/09/2023</p>
                     <p>{formatNumber(property.price)}</p>
                   </PropertyDescription>
                   <ContactArea>
+                    <EmailButton>
+                      <StyledEmail />
+                    </EmailButton>
                     <DetailsButton>Contact</DetailsButton>
                   </ContactArea>
                 </Property>

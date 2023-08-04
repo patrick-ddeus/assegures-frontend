@@ -15,6 +15,8 @@ function Dropdown({
   top,
   suggestsBg,
   onSelect,
+  p,
+  m
 }) {
   const [hide, setHide] = useState(true);
   const dropdownRef = useRef(null);
@@ -36,6 +38,8 @@ function Dropdown({
   return (
     <>
       <Container
+        p={p}
+        m={m}
         aria-label="dropdown"
         onClick={() => setHide(!hide)}
         ref={dropdownRef}

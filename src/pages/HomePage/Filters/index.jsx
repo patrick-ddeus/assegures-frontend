@@ -218,31 +218,6 @@ const Filters = () => {
             suggests?.districts?.length > 0 ||
             suggests?.streets?.length > 0 ? (
               <div>
-                {/* {filters.cities.length > 0 ||
-                filters.districts.length > 0 ||
-                filters.streets.length > 0 ? (
-                  <>
-                    <h1>Selecionados</h1>
-                    {filters.cities.map((item) => (
-                      <>
-                        <li key={item}>
-                          <input
-                            type="checkbox"
-                            checked={filters.cities.includes(item)}
-                            onClick={() =>
-                              handleToggleFilter('cities', item)
-                            }
-                          />
-                          <span>
-                            {item}
-                          </span>
-                        </li>
-                      </>
-                    ))}
-                  </>
-                ) : (
-                  ''
-                )} */}
                 <div className="divider cities">
                   <p className="title">Cidade</p>
                   <ul className="list city-list">

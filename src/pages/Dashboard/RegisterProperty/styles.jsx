@@ -30,15 +30,22 @@ export const WarningParagraph = styled.p`
 
 export const GridContainer = styled.div`
   display:grid;
-  grid-template-columns:1fr 1fr;
+  grid-template-columns:${({grid}) => grid};
   grid-column-gap:10px;
+
+  margin: 5px 0;
 `;
 
 export const GridColumn = styled.div`
   display:flex;
   flex-direction:column;
   gap:10px;
-  margin-top:10px;
+`;
+
+export const GridTwoColumns = styled.div`
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  grid-column-gap:10px;
 `;
 
 export const GridThreeColumns = styled.div`
@@ -71,11 +78,6 @@ export const SelectAddress = styled.select`
     }
 `;
 
-export const GridTwoColumns = styled.div`
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  grid-column-gap:10px;
-`;
 
 export const Form = styled.form`
   h3{
@@ -98,9 +100,16 @@ export const Input = styled.input`
   border-radius:5px;
   font-size:15px;
 
+  margin-top:${({mt}) => mt};
+
   &::placeholder{
     color:#5e6a82;
     font-weight:400;
+  }
+
+  &:invalid{
+    border:1px solid red;
+    outline:0;
   }
 
 `;
@@ -117,6 +126,7 @@ export const RadioGroup = styled.div`
 
   label{
     display:flex;
+    align-items:center;
     gap:5px;
     font-size:14px;
   }
